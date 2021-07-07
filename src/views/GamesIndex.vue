@@ -2,11 +2,11 @@
   <div class="gamesIndex">
     <h1>All Games</h1>
     <div v-for="game in games" v-bind:key="game.id">
-      <h2>{{ game.name }}</h2>
-      <img v-bind:src="game.url" v-bind:alt="game.name" />
+      <img v-bind:src="game.box_art" v-bind:alt="game.id" />
       <p>Name: {{ game.name }}</p>
-      <p>BoxArt: {{ game.box_art }}</p>
-      <p>Genre: {{ game.genre }}</p>
+    </div>
+    <div v-for="genre in game_genre.genres" v-bind:key="genre.id">
+      <p>Genre: {{ genre.name }}</p>
     </div>
   </div>
 </template>
@@ -19,6 +19,8 @@ export default {
   data: function () {
     return {
       games: [],
+      genres: [],
+      game_genre: [],
     };
   },
   created: function () {
