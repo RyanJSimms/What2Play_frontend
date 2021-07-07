@@ -6,7 +6,8 @@
       <p>Name: {{ game.name }}</p>
       <div v-for="genre in game.genres" v-bind:key="genre.id">
         <p>Genre: {{ genre.genre_name }}</p>
-        <a v-bind:href="`/games/${game.id}`">More Info</a>
+        <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites</a>
+        <a v-bind:href="`/games/${game.id}`"><button>More Info</button></a>
       </div>
     </div>
   </div>

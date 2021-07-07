@@ -5,8 +5,7 @@
       <img v-bind:src="game.box_art" alt="" />
     </div>
     <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites!</a>
-    <button v-if="game.is_owner" v-on:click="destroyGame()">Destroy game</button>
-    <a href="/games">Back to all games</a>
+    <a href="/games"><button>Back to all games</button></a>
   </div>
 </template>
 
