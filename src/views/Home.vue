@@ -13,7 +13,9 @@
             feeling of emptiness after finishing a great game and not knowing where to go next has plagued all gamers.
             We are here to help! Take a look around and find the next journey to embark on!
           </p>
-          <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#!">Visit Us Today!</a></div>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-primary btn-xl" href="/games">Check out our games!</a>
+          </div>
         </div>
       </div>
     </div>
