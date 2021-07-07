@@ -4,9 +4,10 @@
     <div v-for="game in games" v-bind:key="game.id">
       <img v-bind:src="game.box_art" v-bind:alt="game.id" />
       <p>Name: {{ game.name }}</p>
-    </div>
-    <div v-for="genre in game_genre.genres" v-bind:key="genre.id">
-      <p>Genre: {{ genre.name }}</p>
+      <div v-for="genre in game.genres" v-bind:key="genre.id">
+        <p>Genre: {{ genre.genre_name }}</p>
+        <a href="/games/1">More Info</a>
+      </div>
     </div>
   </div>
 </template>
@@ -19,8 +20,6 @@ export default {
   data: function () {
     return {
       games: [],
-      genres: [],
-      game_genre: [],
     };
   },
   created: function () {

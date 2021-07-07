@@ -18,7 +18,7 @@
         <label>Review:</label>
         <input type="text" v-model="newFavoriteParams.review" />
       </div>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Create" />
     </form>
   </div>
 </template>

@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import GamesIndex from "../views/GamesIndex.vue";
 import FavoritesNew from "../views/FavoritesNew.vue";
+import GamesShow from "../views/GamesShow.vue";
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
     path: "/favorites",
     name: "favoritesNew",
     component: FavoritesNew,
+  },
+  {
+    path: "/games/:id",
+    name: "gamesShow",
+    component: GamesShow,
   },
 ];
 

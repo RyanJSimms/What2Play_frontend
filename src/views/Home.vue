@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <header>
+      <h1 class="site-heading text-center text-faded d-none d-lg-block">
+        <span class="site-heading-lower">Welcome to What2Play!</span>
+      </h1>
+    </header>
+
     <div class="container">
       <div class="intro">
         <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
@@ -9,9 +15,9 @@
             <span class="section-heading-lower">Look no more!</span>
           </h2>
           <p class="mb-3">
-            Welcome to What2Play! Have you ever been in the position of not knowing what game to move onto next? That
-            feeling of emptiness after finishing a great game and not knowing where to go next has plagued all gamers.
-            We are here to help! Take a look around and find the next journey to embark on!
+            Have you ever been in the position of not knowing what game to move onto next? That feeling of emptiness
+            after finishing a great game and not knowing where to go next has plagued all gamers. We are here to help!
+            Take a look around and find the next journey to embark on!
           </p>
           <div class="intro-button mx-auto">
             <a class="btn btn-primary btn-xl" href="/games">Check out our games!</a>
