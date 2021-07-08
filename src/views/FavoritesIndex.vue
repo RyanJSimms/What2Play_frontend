@@ -2,10 +2,11 @@
   <div class="favoritesIndex">
     <h1>My favorites</h1>
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
-      <img v-bind:src="favorite.box_art" v-bind:alt="favorite.id" />
-      <p>Game ID: {{ favorite.game_id }}</p>
-      <p>Rating: {{ favorite.rating }}</p>
-      <p>Review: {{ favorite.review }}</p>
+      <img v-bind:src="favorite.game.box_art" v-bind:alt="game.id" />
+      <p>Game: {{ favorite.game.name }}</p>
+      <h3>
+        <a v-bind:href="`/favorites/${favorite.id}`"><button>Show favorite</button></a>
+      </h3>
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ export default {
   data: function () {
     return {
       favorites: [],
+      game: [],
     };
   },
   created: function () {

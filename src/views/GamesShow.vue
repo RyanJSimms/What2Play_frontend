@@ -4,8 +4,9 @@
     <div>
       <img v-bind:src="game.box_art" alt="" />
     </div>
-    <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites!</a>
     <a href="/games"><button>Back to all games</button></a>
+    <button v-on:click="addToFavorites()">Add to favorites</button>
+    <!-- <router-link class="special" v-bind:to="`/game/${game.id}/favorites`">Add to Favorites</router-link> -->
   </div>
 </template>
 
@@ -32,6 +33,15 @@ export default {
       axios.delete("/games/" + this.game.id).then((response) => {
         console.log("Destroy success", response.data);
         this.$router.push("/games");
+      });
+    },
+    addToFavorites: function () {
+      var params = {
+        game_id: this.game.id,
+      };
+      axios.post("/favorites", params).then((response) => {
+        console.log("added to favorites", response.data);
+        this.$router.push("/favorites");
       });
     },
   },
