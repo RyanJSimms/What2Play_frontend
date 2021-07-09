@@ -1,13 +1,15 @@
 <template>
   <div>
     <h1>Current Favorite</h1>
-    <h2>Rating: {{ favorite.rating }}</h2>
+    <h2>Name: {{ favorite.name }}</h2>
+    <h3>Rating: {{ favorite.rating }}</h3>
     <p>Review: {{ favorite.review }}</p>
-    <div><img v-bind:src="favorite.game.box_art" alt:="" /></div>
+    <p>Edit the rating and review below!</p>
+    <div><img v-bind:src="favorite.background_image" alt:="" /></div>
     <button v-on:click="destroyFavorite()">Remove favorite from list</button>
     <a href="/favorites"><button>Back to favorites</button></a>
     <form v-on:submit.prevent="updateFavorite()">
-      <h1>Edit Favorite</h1>
+      <h3>Edit Favorite</h3>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>

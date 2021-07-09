@@ -1,6 +1,10 @@
 <template>
   <div>
+    <img v-bind:src="game.background_image" v-bind:alt="game.id" />
     <h2>{{ game.name }}</h2>
+    <h3>Critic Rating: {{ game.rating }}</h3>
+    <h3>ESRB Rating: {{ game.esrb_rating.name }}</h3>
+    <h3>Platforms: {{ platformsList(game.platforms) }}</h3>
     <div>
       <img v-bind:src="game.box_art" alt="" />
     </div>
@@ -15,7 +19,10 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      game: {},
+      game: {
+        esrb_rating: {},
+        platforms: {},
+      },
     };
   },
   created: function () {
@@ -38,11 +45,20 @@ export default {
     addToFavorites: function () {
       var params = {
         game_id: this.game.id,
+        name: this.game.name,
+        background_image: this.game.background_image,
+        rating: this.game.rating,
       };
       axios.post("/favorites", params).then((response) => {
         console.log("added to favorites", response.data);
         this.$router.push("/favorites");
       });
+    },
+    platformsList: function (platforms) {
+      if (platforms && platforms.map) {
+        console.log(platforms);
+        return platforms.map((platform) => platform.platform.name).join(", ");
+      }
     },
   },
 };

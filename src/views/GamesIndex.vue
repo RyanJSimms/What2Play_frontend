@@ -2,13 +2,15 @@
   <div class="gamesIndex">
     <h1>All Games</h1>
     <div v-for="game in games" v-bind:key="game.id">
-      <img v-bind:src="game.box_art" v-bind:alt="game.id" />
+      <img v-bind:src="game.background_image" v-bind:alt="game.id" />
       <p>Name: {{ game.name }}</p>
-      <div v-for="genre in game.genres" v-bind:key="genre.id">
-        <p>Genre: {{ genre.genre_name }}</p>
-        <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites</a>
-        <a v-bind:href="`/games/${game.id}`"><button>More Info</button></a>
-      </div>
+      <p>Genre: {{ game.genres[0].name }}</p>
+      <!-- <p>Tags: {{ game.tags }}</p> -->
+      <!-- <div v-for="platform in games" v-bind:key="platform.id">
+        <p>Platform: {{ game.platforms[0].name }}</p> -->
+      <!-- </div> -->
+      <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites</a>
+      <a v-bind:href="`/games/${game.id}`"><button>More Info</button></a>
     </div>
   </div>
 </template>
@@ -34,7 +36,7 @@ export default {
     indexGames: function () {
       axios.get("/games").then((response) => {
         console.log("games index", response);
-        this.games = response.data;
+        this.games = response.data.results;
       });
     },
   },

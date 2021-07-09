@@ -2,8 +2,8 @@
   <div class="favoritesIndex">
     <h1>My favorites</h1>
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
-      <img v-bind:src="favorite.game.box_art" v-bind:alt="game.id" />
-      <p>Game: {{ favorite.game.name }}</p>
+      <img v-bind:src="favorite.background_image" v-bind:alt="favorite.game_id" />
+      <p>Game: {{ favorite.name }}</p>
       <h3>
         <a v-bind:href="`/favorites/${favorite.id}`"><button>Show favorite</button></a>
       </h3>
