@@ -1,9 +1,15 @@
 <template>
   <div class="gamesIndex">
     <h1>All Games</h1>
-    <div v-for="game in games" v-bind:key="game.id">
+
+    <div>
+      Search games or genres:
+      <input type="text" v-model="searchFilter" />
+    </div>
+
+    <div v-for="game in filterBy(games, searchFilter, 'name', 'genres')" v-bind:key="game.id">
       <img v-bind:src="game.background_image" v-bind:alt="game.id" />
-      <p>Name: {{ game.name }}</p>
+      <p>{{ game.name }}</p>
       <p>Genre: {{ game.genres[0].name }}</p>
       <!-- <p>Tags: {{ game.tags }}</p> -->
       <!-- <div v-for="platform in games" v-bind:key="platform.id">
@@ -17,16 +23,20 @@
 
 <style>
 img {
-  width: 250px;
+  width: 300px;
 }
 </style>
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
+
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       games: [],
+      searchFilter: "",
     };
   },
   created: function () {

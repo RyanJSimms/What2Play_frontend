@@ -2,9 +2,11 @@
   <div>
     <img v-bind:src="game.background_image" v-bind:alt="game.id" />
     <h2>{{ game.name }}</h2>
+    <h3>Release date: {{ game.released }}</h3>
     <h3>Critic Rating: {{ game.rating }}</h3>
     <h3>ESRB Rating: {{ game.esrb_rating.name }}</h3>
     <h3>Platforms: {{ platformsList(game.platforms) }}</h3>
+    <h3>Description: {{ game.description_raw }}</h3>
     <div>
       <img v-bind:src="game.box_art" alt="" />
     </div>

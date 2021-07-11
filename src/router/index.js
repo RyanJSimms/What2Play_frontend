@@ -8,6 +8,7 @@ import GamesIndex from "../views/GamesIndex.vue";
 import FavoritesIndex from "../views/FavoritesIndex.vue";
 import GamesShow from "../views/GamesShow.vue";
 import FavoritesShow from "../views/FavoritesShow.vue";
+import UsersIndex from "../views/UsersIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes = [
     path: "/favorites/:id",
     name: "favoritesShow",
     component: FavoritesShow,
+  },
+  {
+    path: "/users",
+    name: "usersIndex",
+    component: UsersIndex,
   },
 ];
 
