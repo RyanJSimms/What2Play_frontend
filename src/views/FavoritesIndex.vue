@@ -7,11 +7,9 @@
       <h3>
         <a v-bind:href="`/favorites/${favorite.id}`"><button>Show favorite</button></a>
       </h3>
-      <h3>
-        <a href="/users"></a>
-        See what other users are playing!
-      </h3>
     </div>
+    <p>Need some more suggestions?</p>
+    <a v-bind:href="`/users/`"><button>See what other users are playing!</button></a>
   </div>
 </template>
 

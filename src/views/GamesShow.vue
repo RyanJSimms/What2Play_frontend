@@ -12,7 +12,6 @@
     </div>
     <a href="/games"><button>Back to all games</button></a>
     <button v-on:click="addToFavorites()">Add to favorites</button>
-    <!-- <router-link class="special" v-bind:to="`/game/${game.id}/favorites`">Add to Favorites</router-link> -->
   </div>
 </template>
 
