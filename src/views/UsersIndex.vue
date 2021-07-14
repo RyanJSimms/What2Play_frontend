@@ -10,7 +10,7 @@
               <div class="product-item-title d-flex">
                 <div class="bg-faded p-5 d-flex me-auto rounded">
                   <h2 class="section-heading mb-0">
-                    <span class="section-heading-upper">User: {{ user.username }}</span>
+                    <span class="section-heading-upper">User:{{ user.username }}</span>
                     <span class="section-heading-upper">Rating: {{ favorite.rating }}</span>
                     <span class="section-heading-upper">Review: {{ favorite.review }}</span>
                   </h2>
@@ -32,19 +32,6 @@
           </div>
         </section>
       </section>
-    </div>
-
-    <div v-for="user in users" v-bind:key="user.id">
-      <h2>{{ user.username }}</h2>
-      <div class="row">
-        <div class="col-3" v-for="favorite in user.favorites" v-bind:key="favorite.id">
-          {{ favorite.name }}
-          <p>Rating: {{ favorite.rating }}</p>
-          <p>Review: {{ favorite.review }}</p>
-          <button v-on:click="addToFavorites(favorite)">Add to your favorites!</button>
-          <img v-bind:src="favorite.background_image" alt="" />
-        </div>
-      </div>
     </div>
   </div>
 </template>
