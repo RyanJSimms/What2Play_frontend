@@ -1,17 +1,31 @@
 <template>
   <div>
-    <img v-bind:src="game.background_image" v-bind:alt="game.id" />
-    <h2>{{ game.name }}</h2>
-    <h3>Release date: {{ game.released }}</h3>
-    <h3>Critic Rating: {{ game.rating }}</h3>
-    <h3>ESRB Rating: {{ game.esrb_rating.name }}</h3>
-    <h3>Platforms: {{ platformsList(game.platforms) }}</h3>
-    <h3>Description: {{ game.description_raw }}</h3>
-    <div>
-      <img v-bind:src="game.box_art" alt="" />
-    </div>
-    <a href="/games"><button>Back to all games</button></a>
-    <button v-on:click="addToFavorites()">Add to favorites</button>
+    <section class="page-section about-heading">
+      <div class="container">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" v-bind:src="game.background_image" alt="..." />
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">{{ game.name }}</span>
+                  <span class="section-heading-upper">Release date: {{ game.released }}</span>
+                  <span class="section-heading-upper">Critic Rating: {{ game.rating }}</span>
+                  <span class="section-heading-upper">ESRB Rating: {{ game.esrb_rating.name }}</span>
+                  <span class="section-heading-upper">Platforms: {{ platformsList(game.platforms) }}</span>
+                </h2>
+                <p>
+                  {{ game.description_raw }}
+                </p>
+                <p class="mb-0"></p>
+                <a href="/games" class="btn btn-primary">Back to all games</a>
+                <button v-on:click="addToFavorites()" class="btn btn-primary">Add to favorites</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 

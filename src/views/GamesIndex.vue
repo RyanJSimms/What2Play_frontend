@@ -6,26 +6,38 @@
       Search games or genres:
       <input type="text" v-model="searchFilter" />
     </div>
-
-    <div v-for="game in filterBy(games, searchFilter, 'name', 'genres')" v-bind:key="game.id">
-      <img v-bind:src="game.background_image" v-bind:alt="game.id" />
-      <p>{{ game.name }}</p>
-      <p>Genre: {{ game.genres[0].name }}</p>
-      <!-- <p>Tags: {{ game.tags }}</p> -->
-      <!-- <div v-for="platform in games" v-bind:key="platform.id">
-        <p>Platform: {{ game.platforms[0].name }}</p> -->
-      <!-- </div> -->
-      <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites</a>
-      <a v-bind:href="`/games/${game.id}`"><button>More Info</button></a>
-    </div>
+    <section class="page-section" v-for="game in filterBy(games, searchFilter, 'name', 'genres')" v-bind:key="game.id">
+      <div class="container">
+        <div class="product-item">
+          <div class="product-item-title d-flex">
+            <div class="bg-faded p-5 d-flex me-auto rounded">
+              <h2 class="section-heading mb-0">
+                <span class="section-heading-upper">Genre: {{ game.genres[0].name }}</span>
+                <span class="section-heading-lower">{{ game.name }}</span>
+              </h2>
+            </div>
+          </div>
+          <img
+            class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+            v-bind:src="game.background_image"
+            alt="..."
+          />
+          <div class="product-item-description d-flex ms-auto">
+            <div class="bg-faded p-5 rounded">
+              <p class="mb-0">
+                {{ game.description_raw }}
+              </p>
+              <a v-if="game.is_owner" v-bind:href="`/games/${game.id}/favorites`">Add to favorites</a>
+              <a v-bind:href="`/games/${game.id}`" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
-<style>
-img {
-  width: 300px;
-}
-</style>
+<style></style>
 
 <script>
 import axios from "axios";

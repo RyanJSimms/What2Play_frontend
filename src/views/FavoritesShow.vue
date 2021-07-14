@@ -1,13 +1,35 @@
 <template>
   <div>
-    <h1>Current Favorite</h1>
-    <h2>Name: {{ favorite.name }}</h2>
-    <h3>Rating: {{ favorite.rating }}</h3>
-    <p>Review: {{ favorite.review }}</p>
-    <p>Edit the rating and review below!</p>
-    <div><img v-bind:src="favorite.background_image" alt:="" /></div>
-    <button v-on:click="destroyFavorite()">Remove favorite from list</button>
-    <a href="/favorites"><button>Back to favorites</button></a>
+    <div>
+      <section class="page-section about-heading">
+        <div class="container">
+          <img
+            class="img-fluid rounded about-heading-img mb-3 mb-lg-0"
+            v-bind:src="favorite.background_image"
+            alt="..."
+          />
+          <div class="about-heading-content">
+            <div class="row">
+              <div class="col-xl-9 col-lg-10 mx-auto">
+                <div class="bg-faded rounded p-5">
+                  <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">{{ favorite.name }}</span>
+                    <span class="section-heading-upper">User Rating: {{ favorite.rating }}</span>
+                    <span class="section-heading-upper">User Review: {{ favorite.review }}</span>
+                  </h2>
+                  <p></p>
+                  <p class="mb-0"></p>
+                  <a href="/users" class="btn btn-primary">See what other users are playing!</a>
+                  <button v-on:click="destroyFavorite()" class="btn btn-primary">Remove favorite from list</button>
+                  <a href="/favorites" class="btn btn-primary">Back to favorites</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <form v-on:submit.prevent="updateFavorite()">
       <h3>Edit Favorite</h3>
       <ul>
